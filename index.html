@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Realm - Seu Universo de Jogos</title>
+    <link rel="icon" type="image/png" href="c:\Users\D'juan\Documents\NovaRealm04(Clientes prontos, logo correto e favicon incluso)\logos\ChatGPT Image 15 de jul. de 2025, 16_54_19.png">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-ab14-622f-b96d-12d934350436/raw?se=2025-08-10T18%3A48%3A21Z&sp=r&sv=2024-08-04&sr=b&scid=fbdbd77e-4b30-5420-a8c5-aa0d720c8851&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-10T16%3A00%3A45Z&ske=2025-08-11T16%3A00%3A45Z&sks=b&skv=2024-08-04&sig=/4U3k9uZn4rgGYJaQkvAGmdI0gbOFShSdNull4ahe0o%3D" alt="Nova Realm Logo" class="logo-img">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar jogos..." id="searchInput">
+        </div>
+        <div class="header-right">
+            <div class="categories-dropdown">
+                <button class="categories-btn">Categorias</button>
+                <div class="categories-content" id="categoriesDropdown">
+                    <!-- Categorias serão preenchidas via JavaScript -->
+                </div>
+            </div>
+            <button class="cart-btn" id="cartBtn">
+                🛒 <span class="cart-count" id="cartCount">0</span>
+            </button>
+            <div class="auth-buttons" id="authButtons">
+                <button class="login-btn" id="loginBtn">Entrar</button>
+                <button class="signup-btn" id="signupBtn">Cadastrar</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Seção de clientes e jogos -->
+    <div class="clients-section">
+        <div class="clients-buttons">
+            <button class="add-client-btn" id="addClientBtn">+ Adicionar Cliente</button>
+            <button class="view-clients-btn" id="viewClientsBtn">Clientes Cadastrados</button>
+            <button class="add-game-btn" id="addGameBtn">+ Adicionar Jogo</button>
+        </div>
+    </div>
+
+    <!-- Popup Carrinho -->
+    <div class="cart-popup" id="cartPopup">
+        <h3>Seu Carrinho</h3>
+        <div id="cartItems"></div>
+        <p class="cart-total">Total: <span id="cartTotal">R$ 0,00</span></p>
+    </div>
+
+    <!-- Popup de Login -->
+    <div class="popup" id="loginPopup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeLogin">&times;</button>
+            <h2>Entrar na Nova Realm</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">E-mail</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup de Cadastro -->
+    <div class="popup" id="signupPopup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeSignup">&times;</button>
+            <h2>Criar Conta</h2>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="signupUsername">Nome do Usuário</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">E-mail</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Senha</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <button type="submit" class="submit-btn">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup de Adicionar Cliente -->
+    <div class="popup" id="addClientPopup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeAddClient">&times;</button>
+            <h2>Adicionar Novo Cliente</h2>
+            <form id="addClientForm">
+                <div class="form-group">
+                    <label for="clientCpf">CPF</label>
+                    <input type="text" id="clientCpf" required placeholder="000.000.000-00">
+                </div>
+                <div class="form-group">
+                    <label for="clientEmail">E-mail</label>
+                    <input type="email" id="clientEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientAddress">Endereço</label>
+                    <input type="text" id="clientAddress" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Telefone</label>
+                    <input type="tel" id="clientPhone" required placeholder="(00) 00000-0000">
+                </div>
+                <button type="submit" class="submit-btn">Cadastrar Cliente</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup de Visualizar Clientes -->
+    <div class="popup" id="viewClientsPopup">
+        <div class="popup-content large-popup">
+            <button class="close-btn" id="closeViewClients">&times;</button>
+            <h2>Clientes Cadastrados</h2>
+            <button class="add-client-from-list-btn" id="addClientFromListBtn">+ Adicionar Cliente</button>
+            <div class="clients-list" id="clientsList">
+                <!-- Lista de clientes será preenchida via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup de Adicionar Jogo -->
+    <div class="popup" id="addGamePopup">
+        <div class="popup-content">
+            <button class="close-btn" id="closeAddGame">&times;</button>
+            <h2>Adicionar Novo Jogo</h2>
+            <form id="addGameForm">
+                <div class="form-group">
+                    <label for="gameTitle">Nome do Jogo</label>
+                    <input type="text" id="gameTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="gameImage">URL da Imagem</label>
+                    <input type="url" id="gameImage" required>
+                </div>
+                <div class="form-group">
+                    <label for="gamePrice">Preço</label>
+                    <input type="text" id="gamePrice" required placeholder="R$ 0,00">
+                </div>
+                <div class="form-group">
+                    <label for="gameDescription">Descrição</label>
+                    <textarea id="gameDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Temas (Selecione pelo menos um)</label>
+                    <div class="categories-dropdown game-categories">
+                        <button type="button" class="categories-btn">Selecionar Temas</button>
+                        <div class="categories-content" id="gameCategoriesDropdown">
+                            <!-- Categorias serão preenchidas via JavaScript -->
+                        </div>
+                    </div>
+                    <div id="selectedCategories"></div>
+                </div>
+                <button type="submit" class="submit-btn">Adicionar Jogo</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Popup de Detalhes do Jogo -->
+    <div class="game-details-popup" id="gameDetailsPopup">
+        <div class="game-details-content">
+            <div class="game-details-container">
+                <div class="game-trailer">
+                    <iframe id="gameTrailer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="game-info-sidebar">
+                    <img id="gameDetailsImage" src="" alt="" class="game-logo">
+                    <h2 id="gameDetailsTitle"></h2>
+                    <p id="gameDetailsPrice" class="game-price"></p>
+                    <button class="buy-now-btn" id="buyNowBtn">Compre Agora</button>
+                </div>
+            </div>
+            <div class="game-description">
+                <h3>Descrição</h3>
+                <p id="gameDetailsDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <div class="products-grid" id="productsGrid">
+            <!-- Os produtos serão carregados aqui via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- Scripts da aplicação -->
+    <script src="script.js"></script>
+</body>
+</html>

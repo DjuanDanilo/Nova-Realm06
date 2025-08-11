@@ -1,0 +1,790 @@
+/* Reset e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: url(https://images5.alphacoders.com/805/805185.jpg);
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.logo-img {
+    height: 100%;
+    width: 150px;
+    max-height: 120px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 2rem;
+    max-width: 600px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-buttons button {
+    margin-left: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 0.1px solid white;
+    transition: all 0.3s ease;
+}
+
+/* Ajuste para o badge de admin */
+.admin-badge {
+    background-color: #e94560;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0; /* Remove margens desnecessárias */
+    line-height: 1; /* Mantém a altura da linha consistente */
+    align-self: center; /* Centraliza verticalmente */
+}
+
+/* Estilos para o container de informações do usuário */
+.user-info {
+    display: flex;
+    align-items: center; /* Alinha todos os itens verticalmente ao centro */
+    gap: 0.5rem;
+    margin-right: 1rem;
+    height: 40px; /* Altura fixa para melhor alinhamento */
+}
+
+.login-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.signup-btn {
+    background-color: #e94560;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #d13354;
+}
+
+.logout-btn {
+    background-color: #0f3460;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    height: 40px; /* Mesma altura do container */
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center;
+}
+
+.logout-btn:hover {
+    background-color: #0a2342;
+}
+
+.user-name {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    display: flex;
+    padding-top: 2px; /* Ajuste fino se necessário */
+    align-items: center; /* Centraliza verticalmente o texto */
+    height: 100%;
+}
+
+/* Seção de Clientes */
+.clients-section {
+    background-color: #0f3460;
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clients-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.add-client-btn, .view-clients-btn, .add-client-from-list-btn, .add-game-btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.view-clients-btn {
+    background-color: #2e5ddf;
+    color: white;
+}
+
+.view-clients-btn:hover {
+    background-color: #1a4bc7;
+}
+
+.add-client-btn, .add-client-from-list-btn, .add-game-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-client-btn:hover, .add-client-from-list-btn:hover, .add-game-btn:hover {
+    background-color: #3e8e41;
+}
+
+/* Botão Carrinho */
+.cart-btn {
+    background-color: #0f3460;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.cart-count {
+    background-color: #e94560;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+
+/* Dropdown Categorias */
+.categories-dropdown {
+    position: relative;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.categories-btn {
+    background: transparent;
+    color: rgb(255, 255, 255);
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categories-content {
+    display: none;
+    position: absolute;
+    border: 2px solid white;
+    background: rgba(1, 24, 124, 0.678);
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.categories-dropdown:hover {
+    background: #0f3460;
+}
+
+.categories-content label {
+    display: block;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.categories-content label:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+/* Estilo para o tema na descrição do jogo */
+.game-theme {
+    background-color: rgba(128, 128, 128, 0.2);
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Estilo para as categorias selecionadas */
+.selected-category {
+    display: inline-block;
+    background-color: #0f3460;
+    color: rgb(255, 255, 255);
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    margin: 0.2rem;
+    font-size: 0.8rem;
+}
+
+/* Ajuste para o dropdown de categorias nos formulários */
+.game-categories .categories-content {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #ddd;
+}
+
+/* Popups */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Popup grande para lista de clientes */
+.large-popup {
+    max-width: 800px !important;
+}
+
+.clients-list {
+    margin-top: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.client-item {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.client-info {
+    flex-grow: 1;
+}
+
+.client-info p {
+    margin: 0.3rem 0;
+    color: #333;
+}
+
+.client-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-client-btn, .delete-client-btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.edit-client-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.delete-client-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #e94560;
+    background: rgba(0, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: #e94560;
+    color: white;
+    transform: scale(1.1);
+}
+
+.popup h2 {
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #d13354;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.product-card {
+    background-color: rgba(15, 52, 96, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.product-image-container {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+.product-price {
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.add-to-cart {
+    background-color: #2e5ddf;
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #1a4bc7;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #0000ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Popup Carrinho */
+.cart-popup {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: 150;
+    display: none;
+    padding: 1.5rem;
+    color: white;
+    border: 1px solid #2e5ddf;
+}
+
+.cart-popup.show {
+    display: block;
+}
+
+.cart-popup h3 {
+    margin-bottom: 1.5rem;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 1rem;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details h4 {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.quantity-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.cart-item-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.cart-item-price span {
+    font-weight: bold;
+}
+
+.remove-item-btn {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.remove-item-btn:hover {
+    background-color: #d13354;
+}
+
+.cart-total {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.empty-cart, .empty-list {
+    text-align: center;
+    padding: 1rem;
+    color: #aaa;
+}
+
+/* Popup de Detalhes do Jogo */
+.game-details-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 300;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 2rem 0;
+}
+
+.game-details-content {
+    background-color: #1a1a2e;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: white;
+    z-index: 1;
+}
+
+.game-details-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-trailer {
+    flex: 1;
+    min-width: 60%;
+    padding: 1rem;
+}
+
+.game-info-sidebar {
+    flex: 1;
+    min-width: 30%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.game-logo {
+    max-width: 100%;
+    max-height: 200px;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+}
+
+.game-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #2e5ddf;
+}
+
+.buy-now-btn {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.buy-now-btn:hover {
+    background-color: #d13354;
+}
+
+.game-description {
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.game-description h3 {
+    margin-bottom: 1rem;
+    color: #2e5ddf;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .search-bar {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    .clients-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cart-popup {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+    }
+
+    .game-details-container {
+        flex-direction: column;
+    }
+    
+    .game-trailer, .game-info-sidebar {
+        min-width: 100%;
+    }
+}
