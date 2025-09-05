@@ -201,6 +201,7 @@ header {
 }
 
 .cart-count {
+    background-color: #4CAF50;
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -788,4 +789,5 @@ main {
     }
 
 }
+
 
