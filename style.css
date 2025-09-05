@@ -201,7 +201,7 @@ header {
 }
 
 .cart-count {
-    background-color: #e94560;
+    background-color: transparent;
     color: white;
     border-radius: 50%;
     width: 20px;
@@ -787,4 +787,5 @@ main {
     .game-trailer, .game-info-sidebar {
         min-width: 100%;
     }
+
 }
